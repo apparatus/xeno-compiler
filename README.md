@@ -1,7 +1,7 @@
 xeno-compiler
 =============
 
-Compile to full JSON system representation
+Compile to full JSON system representation.
 
 Install
 ------
