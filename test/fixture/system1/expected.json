@@ -131,7 +131,7 @@
           "type": "process",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/web",
           "proxyPort": 10000,
-          "servicePort": 20000,
+          "servicePort": 10000,
           "execute": {
             "exec": "sh web/run.sh"
           },
@@ -142,7 +142,7 @@
             "histsrv_PORT": 10002,
             "realsrv_PORT": 10003,
             "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 20000
+            "SERVICE_PORT": 10000
           }
         }
       },
@@ -157,7 +157,7 @@
           "type": "process",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/docsrv",
           "proxyPort": 10001,
-          "servicePort": 20001,
+          "servicePort": 10001,
           "execute": {
             "exec": "node srv/doc-srv"
           },
@@ -168,7 +168,7 @@
             "histsrv_PORT": 10002,
             "realsrv_PORT": 10003,
             "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 20001
+            "SERVICE_PORT": 10001
           }
         }
       },
@@ -183,7 +183,7 @@
           "type": "process",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/histsrv",
           "proxyPort": 10002,
-          "servicePort": 20002,
+          "servicePort": 10002,
           "execute": {
             "exec": "node srv/hist-srv"
           },
@@ -194,7 +194,7 @@
             "histsrv_PORT": 10002,
             "realsrv_PORT": 10003,
             "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 20002
+            "SERVICE_PORT": 10002
           }
         }
       },
@@ -209,7 +209,7 @@
           "type": "process",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/realsrv",
           "proxyPort": 10003,
-          "servicePort": 20003,
+          "servicePort": 10003,
           "execute": {
             "exec": "node srv/real-srv"
           },
@@ -220,7 +220,7 @@
             "histsrv_PORT": 10002,
             "realsrv_PORT": 10003,
             "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 20003
+            "SERVICE_PORT": 10003
           }
         }
       },

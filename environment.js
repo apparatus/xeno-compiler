@@ -68,7 +68,7 @@ module.exports = function() {
 
   var generate = function generate(system) {
     proxyCurrent = 10000;
-    serviceCurrent = 20000;
+    serviceCurrent = 10000;
     auto = {};
 
     var env = generateStdEnv(system);
