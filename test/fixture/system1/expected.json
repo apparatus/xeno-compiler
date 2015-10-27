@@ -60,7 +60,12 @@
         "proxyPort": "auto",
         "servicePort": "auto",
         "execute": {
-          "exec": "sh web/run.sh"
+          "exec": "sh web/run.sh",
+          "env": {
+            "fish": "wibble",
+            "bibble": "frob",
+            "PROXY_HOST": "ni"
+          }
         }
       },
       "type": "process",
@@ -133,9 +138,22 @@
           "proxyPort": 10000,
           "servicePort": 10000,
           "execute": {
-            "exec": "sh web/run.sh"
+            "exec": "sh web/run.sh",
+            "env": {
+              "fish": "wibble",
+              "bibble": "frob",
+              "PROXY_HOST": "__TARGETIP__",
+              "web_PORT": 10000,
+              "docsrv_PORT": 10001,
+              "histsrv_PORT": 10002,
+              "realsrv_PORT": 10003,
+              "SERVICE_HOST": "0.0.0.0",
+              "SERVICE_PORT": 10000
+            }
           },
           "environment": {
+            "fish": "wibble",
+            "bibble": "frob",
             "PROXY_HOST": "__TARGETIP__",
             "web_PORT": 10000,
             "docsrv_PORT": 10001,
@@ -273,3 +291,4 @@
     "name": "dev"
   }
 }
+

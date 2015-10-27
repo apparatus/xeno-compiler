@@ -74,7 +74,12 @@ module.exports = function() {
     var env = generateStdEnv(system);
     _.each(system.topology.containers, function(c) {
       if (c.specific) {
-        c.specific.environment = generateSpecficEnv(_.cloneDeep(env), c);
+        if (c.specific.execute && c.specific.execute.env) {
+          c.specific.environment = _.merge(c.specific.execute.env, generateSpecficEnv(_.cloneDeep(env), c));
+        }
+        else {
+          c.specific.environment = generateSpecficEnv(_.cloneDeep(env), c);
+        }
       }
     });
   };

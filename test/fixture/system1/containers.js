@@ -71,7 +71,10 @@ exports.web = {
     proxyPort: 'auto',
     servicePort: 'auto',
     execute: {
-      exec: 'sh /web/run.sh'
+      exec: 'sh /web/run.sh',
+      env: { fish: 'wibble',
+             bibble: 'frob',
+             PROXY_HOST: 'ni' }
     }
   }
 };
