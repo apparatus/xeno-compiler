@@ -15,8 +15,13 @@
       "specific": {
         "type": "process",
         "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/docsrv",
-        "proxyPort": "auto",
-        "servicePort": "auto",
+        "proxyPort": [
+          "auto"
+        ],
+        "servicePort": [
+          "auto"
+        ],
+        "buildScript": "echo hello world",
         "execute": {
           "exec": "node srv/doc-srv"
         }
@@ -29,8 +34,12 @@
       "specific": {
         "type": "process",
         "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/histsrv",
-        "proxyPort": "auto",
-        "servicePort": "auto",
+        "proxyPort": [
+          "auto"
+        ],
+        "servicePort": [
+          "auto"
+        ],
         "execute": {
           "exec": "node srv/hist-srv"
         }
@@ -43,8 +52,12 @@
       "specific": {
         "type": "process",
         "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/realsrv",
-        "proxyPort": "auto",
-        "servicePort": "auto",
+        "proxyPort": [
+          "auto"
+        ],
+        "servicePort": [
+          "auto"
+        ],
         "execute": {
           "exec": "node srv/real-srv"
         }
@@ -57,8 +70,12 @@
       "specific": {
         "type": "process",
         "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/web",
-        "proxyPort": "auto",
-        "servicePort": "auto",
+        "proxyPort": [
+          "auto"
+        ],
+        "servicePort": [
+          "auto"
+        ],
         "execute": {
           "exec": "sh web/run.sh",
           "env": {
@@ -118,6 +135,7 @@
           "type": "blank-container",
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
+            "SERVICE_HOST": "0.0.0.0",
             "web_PORT": 10000,
             "docsrv_PORT": 10001,
             "histsrv_PORT": 10002,
@@ -136,31 +154,25 @@
           "type": "process",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/web",
           "proxyPort": 10000,
-          "servicePort": 10000,
+          "servicePort": 20000,
           "execute": {
             "exec": "sh web/run.sh",
             "env": {
               "fish": "wibble",
               "bibble": "frob",
-              "PROXY_HOST": "__TARGETIP__",
-              "web_PORT": 10000,
-              "docsrv_PORT": 10001,
-              "histsrv_PORT": 10002,
-              "realsrv_PORT": 10003,
-              "SERVICE_HOST": "0.0.0.0",
-              "SERVICE_PORT": 10000
+              "PROXY_HOST": "ni"
             }
           },
           "environment": {
-            "fish": "wibble",
-            "bibble": "frob",
-            "PROXY_HOST": "__TARGETIP__",
+            "PROXY_HOST": "ni",
+            "SERVICE_HOST": "0.0.0.0",
             "web_PORT": 10000,
             "docsrv_PORT": 10001,
             "histsrv_PORT": 10002,
             "realsrv_PORT": 10003,
-            "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 10000
+            "fish": "wibble",
+            "bibble": "frob",
+            "SERVICE_PORT": 20000
           }
         }
       },
@@ -175,18 +187,21 @@
           "type": "process",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/docsrv",
           "proxyPort": 10001,
-          "servicePort": 10001,
+          "servicePort": 20001,
+          "buildScript": "echo hello world",
           "execute": {
             "exec": "node srv/doc-srv"
           },
           "environment": {
-            "PROXY_HOST": "__TARGETIP__",
+            "PROXY_HOST": "ni",
+            "SERVICE_HOST": "0.0.0.0",
             "web_PORT": 10000,
             "docsrv_PORT": 10001,
             "histsrv_PORT": 10002,
             "realsrv_PORT": 10003,
-            "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 10001
+            "fish": "wibble",
+            "bibble": "frob",
+            "SERVICE_PORT": 20001
           }
         }
       },
@@ -201,18 +216,20 @@
           "type": "process",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/histsrv",
           "proxyPort": 10002,
-          "servicePort": 10002,
+          "servicePort": 20002,
           "execute": {
             "exec": "node srv/hist-srv"
           },
           "environment": {
-            "PROXY_HOST": "__TARGETIP__",
+            "PROXY_HOST": "ni",
+            "SERVICE_HOST": "0.0.0.0",
             "web_PORT": 10000,
             "docsrv_PORT": 10001,
             "histsrv_PORT": 10002,
             "realsrv_PORT": 10003,
-            "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 10002
+            "fish": "wibble",
+            "bibble": "frob",
+            "SERVICE_PORT": 20002
           }
         }
       },
@@ -227,18 +244,20 @@
           "type": "process",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/realsrv",
           "proxyPort": 10003,
-          "servicePort": 10003,
+          "servicePort": 20003,
           "execute": {
             "exec": "node srv/real-srv"
           },
           "environment": {
-            "PROXY_HOST": "__TARGETIP__",
+            "PROXY_HOST": "ni",
+            "SERVICE_HOST": "0.0.0.0",
             "web_PORT": 10000,
             "docsrv_PORT": 10001,
             "histsrv_PORT": 10002,
             "realsrv_PORT": 10003,
-            "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 10003
+            "fish": "wibble",
+            "bibble": "frob",
+            "SERVICE_PORT": 20003
           }
         }
       },
@@ -256,11 +275,14 @@
             "name": "redis"
           },
           "environment": {
-            "PROXY_HOST": "__TARGETIP__",
+            "PROXY_HOST": "ni",
+            "SERVICE_HOST": "0.0.0.0",
             "web_PORT": 10000,
             "docsrv_PORT": 10001,
             "histsrv_PORT": 10002,
-            "realsrv_PORT": 10003
+            "realsrv_PORT": 10003,
+            "fish": "wibble",
+            "bibble": "frob"
           }
         }
       },
@@ -279,11 +301,14 @@
             "args": "--net=host -d"
           },
           "environment": {
-            "PROXY_HOST": "__TARGETIP__",
+            "PROXY_HOST": "ni",
+            "SERVICE_HOST": "0.0.0.0",
             "web_PORT": 10000,
             "docsrv_PORT": 10001,
             "histsrv_PORT": 10002,
-            "realsrv_PORT": 10003
+            "realsrv_PORT": 10003,
+            "fish": "wibble",
+            "bibble": "frob"
           }
         }
       }
@@ -291,4 +316,3 @@
     "name": "dev"
   }
 }
-

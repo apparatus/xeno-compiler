@@ -13,8 +13,8 @@ exports.docsrv = {
   },
   sared: {
     type: 'docker',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     execute: {
       exec: '/usr/bin/node /srv/doc-srv'
     }
@@ -30,8 +30,8 @@ exports.histsrv = {
   },
   shared$: {
     type: 'docker',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     execute: {
       exec: '/usr/bin/node /srv/hist-srv'
     }
@@ -47,8 +47,8 @@ exports.realsrv = {
   },
   shared$: {
     type: 'docker',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     execute: {
       exec: '/usr/bin/node /srv/real-srv'
     }
@@ -64,8 +64,8 @@ exports.web = {
   },
   shared$: {
     type: 'docker',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     execute: {
       exec: 'sh /web/run.sh'
     }

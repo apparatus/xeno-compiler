@@ -14,8 +14,8 @@ exports.root = {
 exports.users = {
   shared$: {
     type: 'docker',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     buildScript: 'buildsrv.sh',
     repositoryUrl: 'fish',
     execute: {
@@ -28,8 +28,8 @@ exports.users = {
 exports.permissions = {
   shared$: {
     type: 'docker',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     buildScript: 'buildsrv.sh',
     repositoryUrl: 'fish',
     execute: {
@@ -42,8 +42,8 @@ exports.permissions = {
 exports['business-logic'] = {
   shared$: {
     type: 'docker',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     buildScript: 'buildsrv.sh',
     repositoryUrl: 'fish',
     execute: {
@@ -56,8 +56,8 @@ exports['business-logic'] = {
 exports.audit = {
   shared$: {
     type: 'docker',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     buildScript: 'buildsrv.sh',
     repositoryUrl: 'fish',
     execute: {
@@ -70,8 +70,8 @@ exports.audit = {
 exports.emails = {
   shared$: {
     type: 'docker',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     buildScript: 'buildsrv.sh',
     repositoryUrl: 'fish',
     execute: {
@@ -84,8 +84,8 @@ exports.emails = {
 exports.frontend = {
   shared$: {
     type: 'docker',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     buildScript: 'buildsrv.sh',
     repositoryUrl: 'fish',
     execute: {
@@ -99,8 +99,8 @@ exports.frontend = {
 exports.unreferenced = {
   shared$: {
     type: 'docker',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     buildScript: 'buildsrv.sh',
     repositoryUrl: 'fish',
     execute: {

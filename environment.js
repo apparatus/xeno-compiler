@@ -14,6 +14,7 @@
 
 'use strict';
 
+var assert = require('assert');
 var _ = require('lodash');
 
 
@@ -29,37 +30,72 @@ module.exports = function() {
   var auto;
 
 
-  var generateStdEnv = function generateStdEnv(system) {
-    var env = {PROXY_HOST: '__TARGETIP__'};
 
-    _.each(system.topology.containers, function(c) {
-      if (c.specific && c.specific.proxyPort) {
-        if (c.specific.proxyPort === 'auto') {
-          if (auto[c.name]) {
-            c.specific.proxyPort = auto[c.name];
-          }
-          else {
-            c.specific.proxyPort = proxyCurrent;
-            auto[c.name] = proxyCurrent;
-            ++proxyCurrent;
-          }
-        }
-        env[c.name + '_PORT'] = c.specific.proxyPort;
-      }
-    });
-    return env;
-  };
+  /**
+   * generate envronment and port forwarding configuration
+   *
+   * supported inputs:
+   *
+   *  proxyPort: ['auto']
+   *  servicePort: ['auto']
+   *
+   * proxyPort: ['auto']
+   * servicePort: [1234]
+   *
+   * proxyPort: ['auto']
+   * servicePort: [1234, 5678]
+   *
+   * proxyPort: [1234]
+   * servicePort: [5678]
+   *
+   * proxyPort: [1234, 2233]
+   * servicePort: [5678, 5566]
+   */
+  var generateEnvironment = function generateEnvironment(container) {
+    var env = {PROXY_HOST: '__TARGETIP__',
+               SERVICE_HOST: '0.0.0.0'};
+    var idx = 0;
 
+    if (container.specific && container.specific.servicePort && container.specific.proxyPort) {
+      assert(_.isArray(container.specific.servicePort));
+      assert(_.isArray(container.specific.proxyPort));
+      assert(container.specific.servicePort.length >= container.specific.proxyPort.length);
 
-
-  var generateSpecficEnv = function generateSpecficEnv(env, container) {
-    if (container.specific && container.specific.servicePort) {
-      if (container.specific.servicePort === 'auto') {
+      if (container.specific.servicePort.length === 1 && container.specific.servicePort[0] === 'auto') {
         container.specific.servicePort = serviceCurrent;
         ++serviceCurrent;
+        container.specific.proxyPort = proxyCurrent;
+        ++proxyCurrent;
+        env[container.name + '_PORT'] = container.specific.proxyPort;
       }
-      env.SERVICE_HOST = '0.0.0.0';
-      env.SERVICE_PORT = container.specific.servicePort;
+
+      if (container.specific.servicePort.length === 1 && container.specific.servicePort[0] !== 'auto') {
+        container.specific.servicePort = container.specific.servicePort[0];
+        if (container.specific.proxyPort[0] === 'auto') {
+          container.specific.proxyPort = proxyCurrent;
+          ++proxyCurrent;
+        }
+        else {
+          container.specific.proxyPort = container.specific.proxyPort[0];
+        }
+        env[container.name + '_PORT'] = container.specific.proxyPort;
+      }
+
+      if (container.specific.servicePort.length > 1 && container.specific.proxyPort.length === 1 && container.specific.proxyPort[0] === 'auto') {
+          container.specific.proxyPort = [];
+        _.each(container.specific.servicePort, function(servicePort) {
+          container.specific.proxyPort.push(proxyCurrent);
+          ++proxyCurrent;
+          env[container.name + '_PORT_' + servicePort] = container.specific.proxyPort;
+        });
+      }
+
+      if (container.specific.servicePort.length > 1 && container.specific.proxyPort.length > 1) {
+        _.each(container.specific.servicePort, function(servicePort) {
+          env[container.name + '_PORT_' + servicePort] = container.specific.proxyPort[0];
+          ++idx;
+        });
+      }
     }
     return env;
   };
@@ -67,19 +103,29 @@ module.exports = function() {
 
 
   var generate = function generate(system) {
+    var globalEnv = {};
     proxyCurrent = 10000;
-    serviceCurrent = 10000;
+    serviceCurrent = 20000;
     auto = {};
 
-    var env = generateStdEnv(system);
+    _.each(system.topology.containers, function(c) {
+      globalEnv = _.merge(globalEnv, generateEnvironment(c));
+    });
+
     _.each(system.topology.containers, function(c) {
       if (c.specific) {
         if (c.specific.execute && c.specific.execute.env) {
-          c.specific.environment = _.merge(c.specific.execute.env, generateSpecficEnv(_.cloneDeep(env), c));
+          c.specific.environment = _.merge(globalEnv, c.specific.execute.env);
         }
         else {
-          c.specific.environment = generateSpecficEnv(_.cloneDeep(env), c);
+          c.specific.environment = _.cloneDeep(globalEnv);
         }
+      }
+    });
+
+    _.each(system.topology.containers, function(c) {
+      if (c.specific &&  c.specific.servicePort) {
+        c.specific.environment.SERVICE_PORT = c.specific.servicePort;
       }
     });
   };

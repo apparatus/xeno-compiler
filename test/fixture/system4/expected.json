@@ -16,8 +16,12 @@
       "specific": {
         "type": "docker",
         "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/users",
-        "proxyPort": "auto",
-        "servicePort": "auto",
+        "proxyPort": [
+          "auto"
+        ],
+        "servicePort": [
+          "auto"
+        ],
         "buildScript": "buildsrv.sh",
         "repositoryUrl": "fish",
         "execute": {
@@ -33,8 +37,12 @@
       "specific": {
         "type": "docker",
         "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/permissions",
-        "proxyPort": "auto",
-        "servicePort": "auto",
+        "proxyPort": [
+          50005
+        ],
+        "servicePort": [
+          50006
+        ],
         "buildScript": "buildsrv.sh",
         "repositoryUrl": "fish",
         "execute": {
@@ -50,8 +58,12 @@
       "specific": {
         "type": "docker",
         "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/bl",
-        "proxyPort": "auto",
-        "servicePort": "auto",
+        "proxyPort": [
+          "auto"
+        ],
+        "servicePort": [
+          "auto"
+        ],
         "buildScript": "buildsrv.sh",
         "repositoryUrl": "fish",
         "execute": {
@@ -67,8 +79,14 @@
       "specific": {
         "type": "docker",
         "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/audit",
-        "proxyPort": "auto",
-        "servicePort": "auto",
+        "proxyPort": [
+          5001,
+          5002
+        ],
+        "servicePort": [
+          40001,
+          40002
+        ],
         "buildScript": "buildsrv.sh",
         "repositoryUrl": "fish",
         "execute": {
@@ -84,8 +102,13 @@
       "specific": {
         "type": "docker",
         "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/emails",
-        "proxyPort": "auto",
-        "servicePort": "auto",
+        "proxyPort": [
+          "auto"
+        ],
+        "servicePort": [
+          30001,
+          30002
+        ],
         "buildScript": "buildsrv.sh",
         "repositoryUrl": "fish",
         "execute": {
@@ -101,8 +124,12 @@
       "specific": {
         "type": "docker",
         "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/frontend",
-        "proxyPort": "auto",
-        "servicePort": "auto",
+        "proxyPort": [
+          "auto"
+        ],
+        "servicePort": [
+          50001
+        ],
         "buildScript": "buildsrv.sh",
         "repositoryUrl": "fish",
         "execute": {
@@ -147,12 +174,15 @@
           "ipAddress": "1.2.3.4",
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
+            "SERVICE_HOST": "0.0.0.0",
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
             "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004
           }
         }
       },
@@ -167,7 +197,7 @@
           "type": "docker",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/frontend",
           "proxyPort": 10000,
-          "servicePort": 10000,
+          "servicePort": 50001,
           "buildScript": "buildsrv.sh",
           "repositoryUrl": "fish",
           "execute": {
@@ -176,14 +206,16 @@
           },
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
-            "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005,
             "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 10000
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
+            "business-logic_PORT": 10003,
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004,
+            "SERVICE_PORT": 50001
           }
         }
       },
@@ -197,8 +229,8 @@
         "specific": {
           "type": "docker",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/frontend",
-          "proxyPort": 10000,
-          "servicePort": 10001,
+          "proxyPort": 10001,
+          "servicePort": 50001,
           "buildScript": "buildsrv.sh",
           "repositoryUrl": "fish",
           "execute": {
@@ -207,14 +239,16 @@
           },
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
-            "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005,
             "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 10001
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
+            "business-logic_PORT": 10003,
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004,
+            "SERVICE_PORT": 50001
           }
         }
       },
@@ -234,12 +268,15 @@
           },
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
+            "SERVICE_HOST": "0.0.0.0",
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
             "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004
           }
         }
       },
@@ -263,12 +300,15 @@
           "ipAddress": "10.20.30.40",
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
+            "SERVICE_HOST": "0.0.0.0",
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
             "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004
           }
         }
       },
@@ -282,8 +322,8 @@
         "specific": {
           "type": "docker",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/users",
-          "proxyPort": 10001,
-          "servicePort": 10002,
+          "proxyPort": 10002,
+          "servicePort": 20000,
           "buildScript": "buildsrv.sh",
           "repositoryUrl": "fish",
           "execute": {
@@ -292,14 +332,16 @@
           },
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
-            "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005,
             "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 10002
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
+            "business-logic_PORT": 10003,
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004,
+            "SERVICE_PORT": 20000
           }
         }
       },
@@ -313,8 +355,8 @@
         "specific": {
           "type": "docker",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/permissions",
-          "proxyPort": 10002,
-          "servicePort": 10003,
+          "proxyPort": 50005,
+          "servicePort": 50006,
           "buildScript": "buildsrv.sh",
           "repositoryUrl": "fish",
           "execute": {
@@ -323,14 +365,16 @@
           },
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
-            "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005,
             "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 10003
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
+            "business-logic_PORT": 10003,
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004,
+            "SERVICE_PORT": 50006
           }
         }
       },
@@ -345,7 +389,7 @@
           "type": "docker",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/bl",
           "proxyPort": 10003,
-          "servicePort": 10004,
+          "servicePort": 20001,
           "buildScript": "buildsrv.sh",
           "repositoryUrl": "fish",
           "execute": {
@@ -354,14 +398,16 @@
           },
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
-            "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005,
             "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 10004
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
+            "business-logic_PORT": 10003,
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004,
+            "SERVICE_PORT": 20001
           }
         }
       },
@@ -375,8 +421,14 @@
         "specific": {
           "type": "docker",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/audit",
-          "proxyPort": 10004,
-          "servicePort": 10005,
+          "proxyPort": [
+            5001,
+            5002
+          ],
+          "servicePort": [
+            40001,
+            40002
+          ],
           "buildScript": "buildsrv.sh",
           "repositoryUrl": "fish",
           "execute": {
@@ -385,14 +437,19 @@
           },
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
-            "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005,
             "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 10005
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
+            "business-logic_PORT": 10003,
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004,
+            "SERVICE_PORT": [
+              40001,
+              40002
+            ]
           }
         }
       },
@@ -406,8 +463,14 @@
         "specific": {
           "type": "docker",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/emails",
-          "proxyPort": 10005,
-          "servicePort": 10006,
+          "proxyPort": [
+            10004,
+            10005
+          ],
+          "servicePort": [
+            30001,
+            30002
+          ],
           "buildScript": "buildsrv.sh",
           "repositoryUrl": "fish",
           "execute": {
@@ -416,14 +479,19 @@
           },
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
-            "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005,
             "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 10006
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
+            "business-logic_PORT": 10003,
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004,
+            "SERVICE_PORT": [
+              30001,
+              30002
+            ]
           }
         }
       },
@@ -443,12 +511,15 @@
           },
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
+            "SERVICE_HOST": "0.0.0.0",
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
             "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004
           }
         }
       },
@@ -469,12 +540,15 @@
           "ipAddress": "5.6.7.8",
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
+            "SERVICE_HOST": "0.0.0.0",
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
             "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004
           }
         }
       },
@@ -488,8 +562,8 @@
         "specific": {
           "type": "docker",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/frontend",
-          "proxyPort": 10000,
-          "servicePort": 10007,
+          "proxyPort": 10006,
+          "servicePort": 50001,
           "buildScript": "buildsrv.sh",
           "repositoryUrl": "fish",
           "execute": {
@@ -498,14 +572,16 @@
           },
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
-            "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005,
             "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 10007
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
+            "business-logic_PORT": 10003,
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004,
+            "SERVICE_PORT": 50001
           }
         }
       },
@@ -519,8 +595,8 @@
         "specific": {
           "type": "docker",
           "path": "/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/frontend",
-          "proxyPort": 10000,
-          "servicePort": 10008,
+          "proxyPort": 10007,
+          "servicePort": 50001,
           "buildScript": "buildsrv.sh",
           "repositoryUrl": "fish",
           "execute": {
@@ -529,14 +605,16 @@
           },
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
-            "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005,
             "SERVICE_HOST": "0.0.0.0",
-            "SERVICE_PORT": 10008
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
+            "business-logic_PORT": 10003,
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004,
+            "SERVICE_PORT": 50001
           }
         }
       },
@@ -556,12 +634,15 @@
           },
           "environment": {
             "PROXY_HOST": "__TARGETIP__",
-            "frontend_PORT": 10000,
-            "users_PORT": 10001,
-            "permissions_PORT": 10002,
+            "SERVICE_HOST": "0.0.0.0",
+            "frontend_PORT": 10007,
+            "users_PORT": 10002,
+            "permissions_PORT": 50005,
             "business-logic_PORT": 10003,
-            "audit_PORT": 10004,
-            "emails_PORT": 10005
+            "audit_PORT_40001": 5001,
+            "audit_PORT_40002": 5001,
+            "emails_PORT_30001": 10004,
+            "emails_PORT_30002": 10004
           }
         }
       }

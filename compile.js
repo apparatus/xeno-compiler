@@ -21,13 +21,7 @@ var proxy = require('./proxy.js')();
 var env = require('./environment')();
 
 
-/*
- * compilation process is:
- *
- * load all container defs
- * load the topology tree
- * build the abstract system definition json
- */
+
 module.exports = function() {
 
   var requireFromString = function(src, moduleName) {
@@ -38,15 +32,6 @@ module.exports = function() {
   };
 
 
-/*
-  var loadModuleFromString = function(src, moduleName) {
-    var mod = require.resolve(moduleName);
-    if (mod && ((mod = require.cache[mod]) !== undefined)) {
-      delete require.cache[moduleName];
-    }
-    return requireFromString(src, moduleName);
-  };
-*/
 
   var compileHeader = function compileHeader(system, sys) {
     system.name = sys.name;

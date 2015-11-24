@@ -15,8 +15,8 @@ exports.users = {
   shared$: {
     type: 'docker',
     path: '/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/users',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     buildScript: 'buildsrv.sh',
     repositoryUrl: 'fish',
     execute: {
@@ -30,8 +30,8 @@ exports.permissions = {
   shared$: {
     type: 'docker',
     path: '/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/permissions',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: [50005],
+    servicePort: [50006],
     buildScript: 'buildsrv.sh',
     repositoryUrl: 'fish',
     execute: {
@@ -45,8 +45,8 @@ exports['business-logic'] = {
   shared$: {
     type: 'docker',
     path: '/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/bl',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     buildScript: 'buildsrv.sh',
     repositoryUrl: 'fish',
     execute: {
@@ -60,8 +60,8 @@ exports.audit = {
   shared$: {
     type: 'docker',
     path: '/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/audit',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: [5001, 5002],
+    servicePort: [40001, 40002],
     buildScript: 'buildsrv.sh',
     repositoryUrl: 'fish',
     execute: {
@@ -75,8 +75,8 @@ exports.emails = {
   shared$: {
     type: 'docker',
     path: '/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/emails',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: [30001, 30002],
     buildScript: 'buildsrv.sh',
     repositoryUrl: 'fish',
     execute: {
@@ -90,8 +90,8 @@ exports.frontend = {
   shared$: {
     type: 'docker',
     path: '/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system4/frontend',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: [50001],
     buildScript: 'buildsrv.sh',
     repositoryUrl: 'fish',
     execute: {

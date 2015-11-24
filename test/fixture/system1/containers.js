@@ -14,8 +14,9 @@ exports.docsrv = {
   shared$: {
     type: 'docker',
     path: '/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/docsrv',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
+    buildScript: 'echo hello world',
     execute: {
       exec: '/usr/bin/node /srv/doc-srv'
     }
@@ -32,8 +33,8 @@ exports.histsrv = {
   shared$: {
     type: 'docker',
     path: '/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/histsrv',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     execute: {
       exec: '/usr/bin/node /srv/hist-srv'
     }
@@ -50,8 +51,8 @@ exports.realsrv = {
   shared$: {
     type: 'docker',
     path: '/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/realsrv',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     execute: {
       exec: '/usr/bin/node /srv/real-srv'
     }
@@ -68,8 +69,8 @@ exports.web = {
   shared$: {
     type: 'docker',
     path: '/Users/pelger/work/nearform/code/microbial/xeno/xeno-compiler/test/fixture/system1/web',
-    proxyPort: 'auto',
-    servicePort: 'auto',
+    proxyPort: ['auto'],
+    servicePort: ['auto'],
     execute: {
       exec: 'sh /web/run.sh',
       env: { fish: 'wibble',
