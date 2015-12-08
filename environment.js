@@ -114,8 +114,8 @@ module.exports = function() {
 
     _.each(system.topology.containers, function(c) {
       if (c.specific) {
-        if (c.specific.execute && c.specific.execute.env) {
-          c.specific.environment = _.merge(globalEnv, c.specific.execute.env);
+        if (c.specific.execute && c.specific.execute.environment) {
+          c.specific.environment = _.merge(_.cloneDeep(globalEnv), c.specific.execute.environment);
         }
         else {
           c.specific.environment = _.cloneDeep(globalEnv);

@@ -23,8 +23,8 @@ test('compose test', function(t) {
 
   compose.translate('test', '12345', 'dev', __dirname + '/fixture/composeSystem/compose.yml', function(err, sysdef) {
     compiler.compile(sysdef, 'dev', function(err, system) {
-      console.log(JSON.stringify(system, null, 2));
-      t.equal(1, 1);
+      t.equal(null, err);
+      t.notEqual(null, system);
     });
   });
 });

@@ -35,6 +35,9 @@ exports.permissions = {
     buildScript: 'buildsrv.sh',
     repositoryUrl: 'fish',
     execute: {
+      environment: {
+        variable: 'test'
+      },
       args: '-e POSTGRESQL=1 -e PORT=10005 -p 10005:10005 --dns 172.17.42.1 -d',
       exec: 'node /wibble/srv/permissions.js'
     }

@@ -164,14 +164,12 @@
             }
           },
           "environment": {
-            "PROXY_HOST": "ni",
+            "PROXY_HOST": "__TARGETIP__",
             "SERVICE_HOST": "0.0.0.0",
             "web_PORT": 10000,
             "docsrv_PORT": 10001,
             "histsrv_PORT": 10002,
             "realsrv_PORT": 10003,
-            "fish": "wibble",
-            "bibble": "frob",
             "SERVICE_PORT": 20000
           }
         }
@@ -193,14 +191,12 @@
             "exec": "node srv/doc-srv"
           },
           "environment": {
-            "PROXY_HOST": "ni",
+            "PROXY_HOST": "__TARGETIP__",
             "SERVICE_HOST": "0.0.0.0",
             "web_PORT": 10000,
             "docsrv_PORT": 10001,
             "histsrv_PORT": 10002,
             "realsrv_PORT": 10003,
-            "fish": "wibble",
-            "bibble": "frob",
             "SERVICE_PORT": 20001
           }
         }
@@ -221,14 +217,12 @@
             "exec": "node srv/hist-srv"
           },
           "environment": {
-            "PROXY_HOST": "ni",
+            "PROXY_HOST": "__TARGETIP__",
             "SERVICE_HOST": "0.0.0.0",
             "web_PORT": 10000,
             "docsrv_PORT": 10001,
             "histsrv_PORT": 10002,
             "realsrv_PORT": 10003,
-            "fish": "wibble",
-            "bibble": "frob",
             "SERVICE_PORT": 20002
           }
         }
@@ -249,14 +243,12 @@
             "exec": "node srv/real-srv"
           },
           "environment": {
-            "PROXY_HOST": "ni",
+            "PROXY_HOST": "__TARGETIP__",
             "SERVICE_HOST": "0.0.0.0",
             "web_PORT": 10000,
             "docsrv_PORT": 10001,
             "histsrv_PORT": 10002,
             "realsrv_PORT": 10003,
-            "fish": "wibble",
-            "bibble": "frob",
             "SERVICE_PORT": 20003
           }
         }
@@ -275,14 +267,12 @@
             "name": "redis"
           },
           "environment": {
-            "PROXY_HOST": "ni",
+            "PROXY_HOST": "__TARGETIP__",
             "SERVICE_HOST": "0.0.0.0",
             "web_PORT": 10000,
             "docsrv_PORT": 10001,
             "histsrv_PORT": 10002,
-            "realsrv_PORT": 10003,
-            "fish": "wibble",
-            "bibble": "frob"
+            "realsrv_PORT": 10003
           }
         }
       },
@@ -301,14 +291,12 @@
             "args": "--net=host -d"
           },
           "environment": {
-            "PROXY_HOST": "ni",
+            "PROXY_HOST": "__TARGETIP__",
             "SERVICE_HOST": "0.0.0.0",
             "web_PORT": 10000,
             "docsrv_PORT": 10001,
             "histsrv_PORT": 10002,
-            "realsrv_PORT": 10003,
-            "fish": "wibble",
-            "bibble": "frob"
+            "realsrv_PORT": 10003
           }
         }
       }
